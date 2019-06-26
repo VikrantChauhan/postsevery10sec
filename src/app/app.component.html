@@ -1,6 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div>
-  <h2>Here are some links to help you start: </h2>
+<div *ngIf="!loading">
+  <h2>Posts fetched in every 10 sec</h2>
+  <p style="text-align: right">
+    <input [(ngModel)]="searchText" placeholder="Search by title" style="padding: 1%;">
+  </p>
   <table>
     <tr>
       <th>title</th>
@@ -8,13 +11,30 @@
       <th>created_at</th>
       <th>author</th>
     </tr>
-    <tr *ngFor="let post of posts">
+    <tr *ngFor="let post of posts | search: {title : searchText}" (click)="openModal('custom-modal-1',post)">
       <td>{{post.title}}</td>
       <td>{{post.url}}</td>
       <td>{{post.created_at}}</td>
       <td>{{post.author}}</td>
     </tr>
   </table>
+  <app-modal id="custom-modal-1" class="modal-box">
+    <div class="modal">
+      <div class="modal-body">
+        <h1>Selected Post details</h1>
+        <p>
+          {{ details }}
+        </p>
+        <button (click)="closeModal('custom-modal-1');">Close</button>
+      </div>
+    </div>
+    <div class="modal-background"></div>
+  </app-modal>
+</div>
+<div *ngIf="loading" class="loading">
+  <div style="width: 200px;height: 100px;color: #fff;text-align: center;margin: 20% auto;">
+    Feching posts. Please wait ! ...
+  </div>
 </div>
 
 

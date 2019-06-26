@@ -10,6 +10,7 @@ table {
     background-color: #f2f2f2;
   }
   tr:hover {
+    cursor: pointer;
     background-color: #ddd;
   }
   th {
@@ -20,3 +21,45 @@ table {
     color: white;
   }
 }
+app-modal {
+  display: none;
+}
+.loading{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  overflow: auto;
+  background-color: rgba(0,0,0,.5);
+}
+app-modal .modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  overflow: auto;
+  background-color: rgba(0,0,0,.5);
+}
+app-modal .modal .modal-body {
+  padding: 20px;
+  background: #fff;
+  margin: 15% auto;
+  width: 60%;
+  overflow: auto;
+  word-break: break-all;
+}
+//.modal-box{
+//  position: fixed;
+//  top: 15%;
+//  left: 30%;
+//  width: 50%;
+//  background: #fff;
+//  height: 310px;
+//  border: 1px solid green;
+//  padding: 2%;
+//  display: none;
+//}

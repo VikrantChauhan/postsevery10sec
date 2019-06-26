@@ -5,17 +5,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ApiService} from './api.service';
+import { SearchPipe } from './search.pipe';
+import {FormsModule} from '@angular/forms';
+import { ModalComponent } from './modal/modal.component';
+import {ModalService} from './modal.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SearchPipe,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [ApiService],
+  providers: [ApiService, ModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
